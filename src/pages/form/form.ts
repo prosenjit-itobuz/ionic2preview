@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-form',
@@ -15,8 +15,9 @@ export class FormPage {
    fb: FormBuilder
    ) {
      this.loginform = fb.group({
-       email: null,
-       password: null
+       email: [null, Validators.required],
+       password: [null, Validators.required],
+       terms: [{checked:false}, Validators.required]
      })
   }
 

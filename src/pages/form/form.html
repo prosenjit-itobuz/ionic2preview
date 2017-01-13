@@ -7,8 +7,8 @@
 </ion-header>
 
 
-<ion-content padding>
-  <h1>Login</h1>
+<ion-content>
+  <h1 padding>Login</h1>
   <form [formGroup]="loginform" (ngSubmit)="loginSubmit(loginform)">
     <ion-list>
       <ion-item>
@@ -19,10 +19,16 @@
         <ion-label floating>Password</ion-label>
         <ion-input type="password" [formControl]="loginform.controls['password']"></ion-input>
       </ion-item>
+      <ion-item>
+        <ion-label> Sam </ion-label>
+        <ion-toggle [formControl]="loginform.controls['terms']"></ion-toggle>
+      </ion-item>
     
     </ion-list>
-    <div class="padding">
-      <button ion-button block>Sign In</button>
+    <div padding>
+      <button ion-button block [disabled]="!loginform.valid">Sign In</button>
     </div>
   </form>
+ 
 </ion-content>
+ 
